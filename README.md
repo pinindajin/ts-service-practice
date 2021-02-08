@@ -1,7 +1,21 @@
+# Table of Contents
+- [Create Service](#create-service)
+  * [Init repo](#init-repo)
+  * [Init Typescript](#init-typescript)
+  * [Update tsconfig](#update-tsconfig)
+  * [Get basic deps for a service](#get-basic-deps-for-a-service)
+  * [Basic server](#basic-server)
+- [Create Docker Image](#create-docker-image)
+  * [Dockerizing the server](#dockerizing-the-server)
+  * [Running the image](#running-the-image)
+
+
+# Create Service
+
 ## Init repo
 - `npm init`
 
-## Init typescript
+## Init Typescript
 We are using Google's TypeScript guide here. There are other options, but they provide a good style and starting point.
 - `npx gts init`
 
@@ -56,6 +70,7 @@ console.log(`Service listening on port ${PORT}.`)
 
 Simply create an `app.ts` file in the `src` dir. There might already be an `index.ts` there that you can rename or just use. You can test this simple server without needing to compile it by running `app.ts` with `ts-node`. Run `npm i -g ts-node` to install `ts-node`. Alternatively you can run `tsc` to build the project and run the `app.js` file in the `build/src` dir with `node`. Run `npm i -g typescript` to install typescript which will then expose the `tsc` command to you for building.
 
+# Create Docker Image
 
 ## Dockerizing the server
 The next step we want to do is to dockerize our server. The first thing we'll need is a `Dockerfile`. Let's create one in the root directory.
