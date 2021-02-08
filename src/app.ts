@@ -20,4 +20,6 @@ defaultRouter.post('/', (ctx: Context, next: Next) => {
 app.use(defaultRouter.routes());
 
 // Startup
-app.listen(3000);
+const PORT = process.env.SERVICE_PORT || 3030
+app.listen(PORT);
+console.log(`Service listening on port ${PORT}.`)
