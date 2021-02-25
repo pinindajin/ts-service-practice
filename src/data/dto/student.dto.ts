@@ -13,12 +13,3 @@ export type CreateStudentRequest = {
   state: string;
   age: number;
 };
-
-export type CreateStudentResponse = {
-  id: string;
-  firstName: string;
-  lastName: string;
-  state: string;
-  age: number;
-  createDate: Date;
-};
