@@ -1,25 +1,15 @@
-import Router from '@koa/router';
-import bodyparser from 'koa-bodyparser';
-import Koa, { Context, Next } from 'koa';
-const app = new Koa();
+import {getServer} from './server';
+import {bootstrapDb} from './data/bootstrap-db';
+import config from './config';
 
-// Middleware
-app.use(bodyparser());
+const start = async () => {
+  // Bootstrap
+  await bootstrapDb();
 
-// Routes
-const defaultRouter = new Router();
-defaultRouter.get('/', (ctx: Context, next: Next) => {
-    ctx.status = 200;
-    next();
-});
-defaultRouter.post('/', (ctx: Context, next: Next) => {
-    ctx.response.body = ctx.request.body;
-    ctx.status = 200;
-    next();
-});
-app.use(defaultRouter.routes());
-
-// Startup
-const PORT = process.env.SERVICE_PORT || 3030
-app.listen(PORT);
-console.log(`Service listening on port ${PORT}.`)
+  // Server
+  const server = getServer();
+  const PORT = config.port;
+  server.listen(PORT);
+  console.log(`Service listening on port ${PORT}.`);
+};
+start();

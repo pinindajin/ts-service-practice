@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./docker/var/lib/postgres:/var/lib/postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: service_user_pass
+      POSTGRES_USER: service_user
+      POSTGRES_DB: service_db

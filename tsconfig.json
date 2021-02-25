@@ -3,7 +3,9 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "rootDir": ".",
-    "outDir": "build"
+    "outDir": "build",
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false
   },
   "include": [
     "src/**/*.ts",
