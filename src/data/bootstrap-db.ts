@@ -1,4 +1,3 @@
-import {create} from 'domain';
 import {createConnection, ConnectionOptions} from 'typeorm';
 import config from '../config';
 import {Student} from './entity/';

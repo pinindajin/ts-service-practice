@@ -178,4 +178,10 @@ Now run `docker-compose up` in the root directory of your project. This starts u
 
 ## TypeORM
 
-Ok so we can connect to our database with Postico.
+Ok so we can connect to our database with Postico. Now we'll want to set up TypeORM. For this stage we'll to install some dependencies. Run the following.
+
+```
+npm i -S convict
+npm i -D @types/convict
+npm i -S typeorm
+```
