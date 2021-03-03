@@ -1,7 +1,7 @@
 import request from 'supertest';
-import {server} from '../server';
-import {bootstrapDb} from '../data/bootstrap-db';
-import {getStudentRepo} from '../data/repository/student.repository';
+import {server} from '../../server';
+import {bootstrapDb} from '../../data/bootstrap-db';
+import {getStudentRepo} from '../../data/repository/student.repository';
 import {v4 as uuid} from 'uuid';
 
 describe('Integration;API;Student', () => {

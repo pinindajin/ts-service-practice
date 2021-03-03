@@ -1,6 +1,7 @@
 import {createConnection, ConnectionOptions} from 'typeorm';
 import config from '../config';
 import {Student} from './entity/';
+import {Student1614799448000} from './migration';
 
 export const bootstrapDb = async () => {
   const connectionOptions: ConnectionOptions = {
@@ -11,8 +12,10 @@ export const bootstrapDb = async () => {
     password: config.db.password,
     database: config.db.name,
     entities: [Student],
+    migrations: [Student1614799448000],
+    migrationsRun: false,
     logging: false,
     synchronize: false,
   };
-  await createConnection(connectionOptions);
+  return await createConnection(connectionOptions);
 };
