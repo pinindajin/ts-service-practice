@@ -13,7 +13,7 @@ services:
       DB_USERNAME: service_user
       DB_PASS: service_user_pass
       DB_PORT: 5432
-    command: npm run start
+    command: npm run test:fresh
   db:
     image: postgres
     ports:
