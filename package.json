@@ -41,7 +41,7 @@
     "prepare": "npm run compile",
     "pretest": "npm run compile",
     "posttest": "npm run lint",
-    "docker-build": "docker build -t pinindajin/ts-service-practice .",
+    "docker:build": "docker build -t ts-service-practice .",
     "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
     "migrate": "ts-node ./src/data/migration/migrate.ts"
   },

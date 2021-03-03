@@ -1,6 +1,18 @@
 version: '3.1'
 
 services:
+  ts-service:
+    image: ts-service-practice
+    ports:
+      - '3030:3030'
+    environment:
+      NODE_ENV: dev
+      PORT: 3030
+      DB_HOST: db
+      DB_NAME: service_db
+      DB_USERNAME: service_user
+      DB_PASS: service_user_pass
+      DB_PORT: 5432
   db:
     image: postgres
     ports:
