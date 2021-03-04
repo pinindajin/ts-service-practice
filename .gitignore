@@ -1,5 +1,7 @@
 # Docker
 postgres-data/
+postgres-data-dev/
+postgres-data-test/
 
 # Build dir
 build/

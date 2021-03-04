@@ -21,7 +21,7 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      - ./docker/var/lib/postgres:/var/lib/postgres
+      - ./postgres-data-test:/var/lib/postgresql/data
     restart: always
     environment:
       POSTGRES_PASSWORD: service_user_pass
