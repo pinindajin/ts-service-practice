@@ -1,22 +1,22 @@
 version: '3.1'
 
 services:
-  ts-service:
-    image: pinindajin/ts-service-practice
+  ts-service-dev:
+    build: .
     ports:
       - '3030:3030'
     environment:
       NODE_ENV: dev
       PORT: 3030
-      DB_HOST: db
+      DB_HOST: db-dev
       DB_NAME: service_db
       DB_USERNAME: service_user
       DB_PASS: service_user_pass
       DB_PORT: 5432
     command: npm run start
     depends_on:
-      - db
-  db:
+      - db-dev
+  db-dev:
     image: postgres
     ports:
       - '5432:5432'
