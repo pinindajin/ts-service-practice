@@ -1,5 +1,6 @@
 # Prod ENV
 prod.env.json
+docker-compose.prod.yml
 
 # Docker
 postgres-data/

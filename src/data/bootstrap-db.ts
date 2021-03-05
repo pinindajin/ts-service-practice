@@ -3,12 +3,13 @@ import config from '../config';
 import {retry} from '../util/retry';
 import {Student} from './entity/';
 import {Student1614799448000} from './migration';
+import {decodeBase64} from '../util/base64';
 
 export const bootstrapDb = async (): Promise<Connection> => {
   const sslOptions = config?.db?.ssl?.cert
     ? {
         ssl: {
-          ca: Buffer.from(config.db.ssl.cert || ''),
+          ca: Buffer.from(decodeBase64(config.db.ssl.cert || '')),
         },
       }
     : {};

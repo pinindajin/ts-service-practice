@@ -31,6 +31,6 @@ This will be useful for testing in CI.
 
 ## Gotchas
 
-If you want to set up `docker-compose` to work against a database with SSL you will need to define `SSL_CERT` in the `environment` block of your compose file, but leave it blank. You can then pass in the value by `cat`ing out the value of your cert. Pasting in the contents of your cert doesn't work well with compose since it doesn't like multiline values and doesn't seem to parse newlines well. Example is `SSL_CERT=$(cat ~/.ssl/ca-certificate.crt) dc -f docker-compose.realdb.yml up`
+If you want to set up `docker-compose` to work against a database with SSL you will need to define `SSL_CERT` in the `environment` block of your compose file. This will need to be the base64 contents of your cert.
 
-`prod.env.json` is added to the `.gitignore`. You shouldn't have a reason to connect to a prod database in development. But if for some reason you want to this is done just as a safety precaution to help you avoid commiting files with sensitive secrets.
+`prod.env.json` and `docker-compose.prod.yml` is added to the `.gitignore`. You shouldn't have a reason to connect to a prod database in development. But if for some reason you want to this is done just as a safety precaution to help you avoid commiting files with sensitive secrets.
