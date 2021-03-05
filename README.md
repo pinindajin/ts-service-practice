@@ -3,6 +3,7 @@
 - [Getting started](#getting-started)
 - [Running everything fully dockerized](#running-everything-fully-dockerized)
 - [Testing in docker](#testing-in-docker)
+- [Environment Variables](#environment-variables)
 - [Gotchas](#gotchas)
 - [Deploying](#deploying)
 
@@ -30,6 +31,19 @@ Run `docker-compose -f docker-compose.test.yml up` to run tests in the fully doc
 
 This will be useful for testing in CI.
 
+## Environment Variables
+
+- `NODE_ENV`: (default development) The execution environment. Must be one of `'production','staging','development','test','stage','prod','dev'`
+- `PORT`: (default 3030) Port that the service will listen on.
+- `DB_HOST`: Hostname for Postgres database.
+- `DB_NAME`: Default database to connect to.
+- `DB_USERNAME`: User for connecting to Postgres database.
+- `DB_PASS`: Password for connecting to Postgres database.
+- `DB_PORT`: Port for connecting to Postgres database.
+- `SSL_CERT`: A base64 encoded string of the contents of your ssl certificate for the Postgres database you are connecting to.
+- `DB_MAX_RETRY_COUNT`: (default 10) The max number of times the service will attempt to retry connecting to the Postgres database on a failed connection.
+- `DB_RETRY_SLEEP`: (default 9000) The time in milliseconds between retry attempts for connecting to the Postgres database.
+
 ## Gotchas
 
 If you want to set up `docker-compose` to work against a database with SSL you will need to define `SSL_CERT` in the `environment` block of your compose file. This will need to be the base64 contents of your cert.
@@ -40,4 +54,4 @@ If you want to set up `docker-compose` to work against a database with SSL you w
 
 There are multiple ways... but here is one.
 
-Create a repo in Docker Hub. Set up the Github to DockerHub integration. Set the build rules. A good build rule is to base it on tags so you can control deploys with releases in Github. Be sure to set two build rules - one for the version and one for latest. Set up a managed Postgres database on Digital Ocean. Don't set any trusted sources. Warning this is not good idea, BUT the App Platform does not yet support trusted sources. To add some extra security you should set up a user and database other than the default user and databae to access your database. Be sure to download your ssl certificate. Set up an app in Digital Ocean's App Platform.  Set it to use Docker Hub as your source. Enter in the appropriate environment variables. Remember that the SSL_CERT should be a base64 encoded string of your ssl certificate contents. If everything was done correctly you should now have a deployed service.
+Create a repo in Docker Hub. Set up the Github to DockerHub integration. Set the build rules. A good build rule is to base it on tags so you can control deploys with releases in Github. Be sure to set two build rules - one for the version and one for latest. Set up a managed Postgres database on Digital Ocean. Don't set any trusted sources. Warning this is not good idea, BUT the App Platform does not yet support trusted sources. To add some extra security you should set up a user and database other than the default user and databae to access your database. Be sure to download your ssl certificate. Set up an app in Digital Ocean's App Platform. Set it to use Docker Hub as your source. Enter in the appropriate environment variables. Remember that the SSL_CERT should be a base64 encoded string of your ssl certificate contents. If everything was done correctly you should now have a deployed service.
