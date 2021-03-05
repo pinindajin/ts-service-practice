@@ -4,6 +4,7 @@
 - [Running everything fully dockerized](#running-everything-fully-dockerized)
 - [Testing in docker](#testing-in-docker)
 - [Gotchas](#gotchas)
+- [Deploying](#deploying)
 
 ## Getting started
 
