@@ -11,8 +11,8 @@ export const retry = async (
       if (i > 0) await sleep(sleepTimeBetweenRetriesInMs);
       console.log(`Trying <${desc}>.`);
       return await fn();
-    } catch {
-      console.log(`Failed to do task <${desc}> retrying...`);
+    } catch (err) {
+      console.log(`Failed to do task <${desc}> retrying...`, err);
     }
   }
 

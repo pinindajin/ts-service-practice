@@ -52,6 +52,28 @@ const config = convict({
       default: 5432,
       env: 'DB_PORT',
     },
+    ssl: {
+      cert: {
+        doc: 'Pem cert for ssl connection',
+        format: String,
+        default: '',
+        env: 'SSL_CERT',
+      },
+    },
+    retry: {
+      maxRetryCount: {
+        doc: 'How many times should the database connection be retried.',
+        format: Number,
+        default: 10,
+        env: 'DB_MAX_RETRY_COUNT',
+      },
+      retrySleep: {
+        doc: 'How long in ms to wait between retries.',
+        format: Number,
+        default: 9000,
+        env: 'DB_RETRY_SLEEP',
+      },
+    },
   },
 });
 

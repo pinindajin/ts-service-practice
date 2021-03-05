@@ -1,3 +1,6 @@
+# Prod ENV
+prod.env.json
+
 # Docker
 postgres-data/
 postgres-data-dev/
