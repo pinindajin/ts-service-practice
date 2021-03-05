@@ -34,3 +34,9 @@ This will be useful for testing in CI.
 If you want to set up `docker-compose` to work against a database with SSL you will need to define `SSL_CERT` in the `environment` block of your compose file. This will need to be the base64 contents of your cert.
 
 `prod.env.json` and `docker-compose.prod.yml` is added to the `.gitignore`. You shouldn't have a reason to connect to a prod database in development. But if for some reason you want to this is done just as a safety precaution to help you avoid commiting files with sensitive secrets.
+
+## Deploying
+
+There are multiple ways... but here is one.
+
+Create a repo in Docker Hub. Set up the Github to DockerHub integration. Set the build rules. A good build rule is to base it on tags so you can control deploys with releases in Github. Be sure to set two build rules - one for the version and one for latest. Set up a managed Postgres database on Digital Ocean. Don't set any trusted sources. Warning this is not good idea, BUT the App Platform does not yet support trusted sources. To add some extra security you should set up a user and database other than the default user and databae to access your database. Be sure to download your ssl certificate. Set up an app in Digital Ocean's App Platform.  Set it to use Docker Hub as your source. Enter in the appropriate environment variables. Remember that the SSL_CERT should be a base64 encoded string of your ssl certificate contents. If everything was done correctly you should now have a deployed service.
